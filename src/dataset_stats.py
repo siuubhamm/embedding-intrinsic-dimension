@@ -1,10 +1,14 @@
+import os
+import sys
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
 import argparse
 from pathlib import Path
 import pandas as pd
 from utils.lid_utils import tokenize
 
 
-def compute_stats(sample_path: Path):
+def compute_stats(sample_path):
     abstracts = [ln.strip() for ln in sample_path.open("r", encoding="utf-8") if ln.strip()]
 
     token_counts = []
