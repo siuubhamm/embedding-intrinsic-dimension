@@ -1,3 +1,11 @@
+"""
+This file is for creating a .csv file for summarizing model performance with IDs
+
+--runs_dir: directory for outputs from compute_id (defaults to runs/) (REQUIRED)
+
+--stats_csv: directory for csv file output
+"""
+
 import argparse
 from pathlib import Path
 import pandas as pd

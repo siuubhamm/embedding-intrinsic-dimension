@@ -1,3 +1,17 @@
+"""
+This file is for creating plots of the redundancy ratio versus the total ED
+
+--summary_csv: csv file generated from summarize_results.py (REQUIRED)
+
+--model: specify which model to use, defaults to gloVe
+
+--level: either token-level for whole text level
+
+--sample_file: input .txt for number of dimensions
+
+--out_png: directory for saving output graph file
+"""
+
 import argparse
 from pathlib import Path
 import pandas as pd
