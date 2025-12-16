@@ -1,0 +1,22 @@
+[
+  {
+    "model": "glove",
+    "ED": 50,
+    "path": "embeddings/glove.6B.50d.txt"
+  },
+  {
+    "model": "glove",
+    "ED": 100,
+    "path": "embeddings/glove.6B.100d.txt"
+  },
+  {
+    "model": "glove",
+    "ED": 200,
+    "path": "embeddings/glove.6B.200d.txt"
+  },
+  {
+    "model": "glove",
+    "ED": 300,
+    "path": "embeddings/glove.6B.300d.txt"
+  }
+]
