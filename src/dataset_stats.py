@@ -1,3 +1,11 @@
+"""
+This file is for creating statistical summary of samples generated from make_samples.py
+
+--samples: the sample.txt file generated from make_samples.py (REQUIRED)
+
+--out_csv: path to csv file output (REQUIRED)
+"""
+
 import os
 import sys
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))

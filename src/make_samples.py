@@ -1,3 +1,15 @@
+"""
+This file is for creating sample tokens of specified dimensions.
+
+--input_txt: a .txt file with text to create tokens for, for example extract_arxiv_cs_abstracts.py output (REQUIRED)
+
+--out_dir: specified directory to place output .json and .txt files
+
+--seed: set for different randomizations, defaults to 2025.
+
+--sizes: specified set of dimensions to create. defaults to 5000, 20000, and 50000
+"""
+
 import argparse
 import json
 from pathlib import Path

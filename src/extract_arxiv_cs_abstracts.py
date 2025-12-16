@@ -1,3 +1,13 @@
+"""
+This file takes the raw arXiv json file and outputs a resulting .txt file filled with abstract texts for use later.
+
+--input_jsonl: the raw arxiv json file containing the abstracts, such as the one linked in README (REQUIRED)
+
+--output_txt: directory for a text file containing the output abstracts (REQUIRED)
+
+--max_papers: a number to define how many papers to be used
+"""
+
 import argparse
 import json
 import re
