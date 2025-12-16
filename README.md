@@ -31,32 +31,38 @@ we recommend using abstracts taken from the arXiv dataset, available: https://ww
 
 run extract_arxiv_cs_abstracts.py to create a .txt file compiling abstract data. This step is optional if you already have the text data.
 
-example: `py .\src\extract_arxiv_cs_abstracts.py --input_jsonl data/raw/arxiv-raw.json --output_txt abstracts.txt --max_papers 10`
+example: `python src/extract_arxiv_cs_abstracts.py --input_jsonl data/raw/arxiv-metadata-oai-snapshot.json --output_txt data/processed/arxiv_cs/all_cs_abstracts.txt`
 
 ## Step 3: Create token samples
 
 run make_samples.py
 
-example: `py .\src\make_samples.py --input_txt abstracts.txt --out_dir data/processed/`
+example: `python src/make_samples.py --input_txt data/processed/arxiv_cs/all_cs_abstracts.txt --out_dir data/processed/arxiv_cs --seed 2025 --sizes 5000 20000 50000`
 
 ## Step 4: Generate dataset summary
 
 run dataset_stats.py
 
-example: `py .\src\dataset_stats.py --samples data/processed/sample_5000.txt  --out_csv stats.csv`
+example: `python src/dataset_stats.py --samples data/processed/arxiv_cs/sample_5000.txt data/processed/arxiv_cs/sample_20000.txt data/processed/arxiv_cs/sample_50000.txt --out_csv runs/dataset_stats.csv`
 
 ## Step 5: Compute intrinsic dimensions
 
 run compute_id.py
 
-example: `py .\src\compute_id.py --experiments .\configs\experiments.json --samples data/processed/sample_5000.txt`
+example: `python src/compute_id.py --experiments configs/experiments.json --samples data/processed/arxiv_cs/sample_5000.txt data/processed/arxiv_cs/sample_20000.txt data/processed/arxiv_cs/sample_50000.txt --out_dir runs --k 10 --repeats 3`
 
 ## Step 6: Summarize and plot results
 
 run summarize_results.py
 
-example: `py .\src\summarize_results.py --runs_dir .\runs\`
+example: `python src/summarize_results.py --runs_dir runs --stats_csv runs/dataset_stats.csv`
 
 then run plot_ratio_vs_ed.py
 
-example: `py .\src\plot_ratio_vs_ed.py --summary_csv .\runs\id_summary.csv --out_png plot.png`
+example: `python src/plot_ratio_vs_ed.py --summary_csv runs/id_summary.csv --model glove --level token --sample_file sample_50000.txt`
+
+## Step 7: Run Retrieval Benchmark
+
+run retrieval_benchmark.py
+
+example: `python src\retrieval_benchmark.py --sample data\processed\arxiv_cs\sample_50000.txt --glove300 embeddings\glove.6B.300d.txt --num_queries 1000000 --topk 10 --R_true 100 --pca_dim 15`
