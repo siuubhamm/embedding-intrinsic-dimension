@@ -2,7 +2,7 @@
 
 This is the repository for our final project, which is about computing intrinsic dimensions within token embeddings.
 
-Link to our paper: [link to paper goes here] 
+Link to our paper: [here](https://github.iu.edu/B565-Fall-2025/B565-Final-Project/blob/main/Data%20Mining%20Final%20Technical%20Report.pdf)
 
 Below are step-by-step instructions for how to run the code within the repo.
 
